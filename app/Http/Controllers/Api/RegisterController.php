@@ -30,12 +30,7 @@ class RegisterController extends Controller
         ]);
 
         $user->notify(new OtpUser($otpCode));
-
-        return $this->successResponse(
-            new UserResource($user),
-            'User registered successfully',
-            201
-        );
+        return $this->successResponse(null, 'User registered successfully, please check your email for OTP verification.', 201);
     }
 
     public function verifyOtp(Request $request)
